@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html ng-app='pellaero'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Pellaero Sprinkler Purge System</title>
+    <base target="_blank">
+
+    <link rel="shortcut icon" type="image/png" href="./images/pellaero_favicon2.png"/>
+
+    <!-- Link to my jQuery file -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+    <!-- Latest compiled and minified angularJS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+
+    <!-- Link to ui-router -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.js"></script>
+
+    <!-- Link to my CSS file -->
+    <link rel="stylesheet" href="main.css" type="text/css" />
+
+    <!-- Google Analytics Code for SPAs -->
+    <!-- <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-41009308-1', 'auto');
+
+    // Replace the following lines with the plugins you want to use.
+    ga('require', 'eventTracker');
+    ga('require', 'outboundLinkTracker');
+    ga('require', 'urlChangeTracker');
+
+    ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <script async src='analytics/autotrack/autotrack.js'></script> -->
+    <!-- End Google Analytics Code for SPAs -->
+
+</head>
+  <body>
+
+  <!-- Facebook 'like' -->
+  <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+      <header>
+        <nav class="transparent" ng-show="$state.current.name == 'home'">
+          <div class="nav-wrapper">
+            <a ui-sref="home" class="brand-logo"><span><img class="logo-image" src="./images/pellaero_white_logo_only.png"/></span></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse" id="no-underline"><i class="material-icons white-text">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a ui-sref="home">Home</a></li>
+              <li><a ui-sref="about">About</a></li>
+              <li><a ui-sref="product">Product</a></li>
+              <li><a ui-sref="faq">FAQ</a></li>
+              <li><a ui-sref="contact">Contact</a></li>
+              <li><a href="http://pellaero.myshopify.com/collections/all">Purchase</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <nav class="light-green darken-3" ng-show="$state.current.name != 'home'">
+          <div class="nav-wrapper">
+            <a ui-sref="home" class="brand-logo"><span><img class="logo-image" src="./images/pellaero_white_logo_only.png"/></span></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse" id="no-underline"><i class="material-icons white-text">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a ui-sref="home">Home</a></li>
+              <li><a ui-sref="about">About</a></li>
+              <li><a ui-sref="product">Product</a></li>
+              <li><a ui-sref="faq">FAQ</a></li>
+              <li><a ui-sref="contact">Contact</a></li>
+              <li><a href="http://pellaero.myshopify.com/collections/all">Purchase</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <ul class="side-nav light-green darken-3" id="mobile-demo">
+          <li><a ui-sref="home" class="white-text" onclick="$('.button-collapse').sideNav('hide');">Home</a></li>
+          <li><a ui-sref="about" class="white-text" onclick="$('.button-collapse').sideNav('hide');">About</a></li>
+          <li><a ui-sref="product" class="white-text" onclick="$('.button-collapse').sideNav('hide');">Product</a></li>
+          <li><a ui-sref="faq" class="white-text" onclick="$('.button-collapse').sideNav('hide');">FAQ</a></li>
+          <li><a ui-sref="contact" class="white-text" onclick="$('.button-collapse').sideNav('hide');">Contact</a></li>
+          <li><a href="http://pellaero.myshopify.com/collections/all" class="white-text" onclick="$('.button-collapse').sideNav('hide');">Purchase</a></li>
+        </ul>
+
+      </header>
+
+    <main ui-view>
+    </main>
+
+    <footer class="page-footer brown darken-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Pellaero Sprinkler Purge System</h5>
+                <p class="white-text">Where convenience and efficiency meet.</p>
+                <div class="fb-like" data-href="http://www.pellaero.com" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+                <div class="linkedin">
+                  <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+                  <script type="IN/CompanyProfile" data-id="3318450" data-format="hover" data-width="100px" data-height="100px"></script>
+                </div>
+                <div>
+                  <script src="https://apis.google.com/js/platform.js"></script>
+                  <div class="g-ytsubscribe" data-channel="Pellaero" data-layout="default" data-count="hidden"></div>
+                </div>
+                <p class="white-text">The Pellaero Sprinkler Purge Systems are manufactured in the USA following high quality and testing procedures before being shipped.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Site Navigation</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" ui-sref="home">Home</a></li>
+                  <li><a class="grey-text text-lighten-3" ui-sref="about">About</a></li>
+                  <li><a class="grey-text text-lighten-3" ui-sref="product">Product</a></li>
+                  <li><a class="grey-text text-lighten-3" ui-sref="faq">FAQ</a></li>
+                  <li><a class="grey-text text-lighten-3" ui-sref="contact">Contact</a></li>
+                  <li><a class="grey-text text-lighten-3" href="http://pellaero.myshopify.com/collections/all">Purchase</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 Pellaero, LLP. All rights reserved.
+            </div>
+          </div>
+        </footer>
+
+    <!-- Scripts -->
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script type="text/javascript" src="./modules/app.js"></script>
+    <script type="text/javascript" src="./modules/routerModule.js"></script>
+  </body>
+
+</html>
